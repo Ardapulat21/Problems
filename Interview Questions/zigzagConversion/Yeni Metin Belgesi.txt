@@ -1,0 +1,61 @@
+#include <iostream>
+
+using namespace std;
+class Solution {
+public:
+
+    string convert(string s, int numRows) {
+        string array[numRows][int(s.length()/2)];
+        for(int z=0;z<sizeof(array)/sizeof(array[0]);z++){
+            for(int zx=0;zx<sizeof(array[0])/sizeof(array[0][0]);zx++){
+                array[z][zx]="";
+            }
+         }
+        int row=0;int column=0;int temp=0;
+        for(int i=0;i<s.length();i++){
+            temp=i+1;
+            cout<<"array["<<row<<"]["<<column<<"]= "<<s[i]<<endl;
+            array[row][column]=s[i];
+            cout<<"i: "<<i<<endl;
+            if(((temp/numRows)%2==0)&& (row!=numRows-1)){
+                row++;
+                cout<<"Row 1 artirildi.1"<<endl;
+            }
+            else if(((temp/numRows)%2!=0 && row!=0) || (row==numRows-1)){
+                row--;
+                column++;
+                cout<<"Row 1 azaltildi.2"<<endl;
+            }
+            else if((temp/numRows)%2!=0 && row==0){
+                cout<<"Row 1 artirildi.3"<<endl;
+                row++;
+            }
+            else{
+                cout<<"zort"<<endl;
+            }
+            // hem temp/numrows tek iken hemde row 0 ise bişey yaz
+            /*if(temp%(numRows)==0){
+                column++;
+            }
+            */
+            cout<<"------"<<endl;
+        }
+        //for(int i=0;i<(sizeof(array)/sizeof(array[0])*(sizeof(array[0])/sizeof(array[0][0])));i++){
+        //}
+        cout<<"Bitti"<<endl;
+        /*for(int i=0;i<sizeof(array)/sizeof(array[0]);i++){
+            for(int a=0;a<sizeof(array[0])/sizeof(array[0][0]);a++){
+                cout<<array[i][a]<<" ";
+            }
+            cout<<endl;
+        }*/
+
+    }
+};
+
+int main()
+{
+    Solution* s=new Solution();
+    cout<<s->convert("PAYPALISHIRING",3);
+    return 0;
+}

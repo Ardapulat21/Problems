@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+class Solution {
+int value;
+string result="";
+int maxLengthOfTheArr(vector<string> arr){
+    int length=arr[0].length();
+        for(int i=0;i<arr.size();i++){
+            if(length<arr[i].length()){
+                length=arr[i].length();
+            }
+        }
+        return length;
+}
+void isEqual(string s){
+    value=1;
+    for(int i=1;i<s.length()-1;i++){
+        while(true){
+            if(s[i-value]==s[i+value])
+                value++;
+            else
+                break;
+        }
+        for(int x=i-value;x<i+value;x++){
+            result+=s[x];
+        }
+    }
+}
+public:
+    vector <string> arr;
+    string longestPalindrome(string s) { //babad
+        int value=1;
+        string result="";
+        string temporary="";
+        for(int i=1;i<s.length()/2;i++){
+            while((s[i-value]==s[i+value])&& (value<=i) && (i+value)<s.length()){
+                    for(int x=i-value;x<i+value;x++){
+                        cout<<"s[x] "<<s[x]<<endl;
+                        temporary+=s[x];
+                    }
+                    result=temporary;
+                    value++;
+            }
+
+            //value yi bir eksiltebiliriz burada.
+            // result 'ý yazalým.
+
+            cout<<"i: "<<i<<" result: "<<result<<endl;
+        }
+    }
+};
+
+int main()
+{
+    Solution* s=new Solution();
+    cout<<s->longestPalindrome("babad");
+
+    return 0;
+}

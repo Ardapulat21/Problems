@@ -1,0 +1,1 @@
+nums.begin()+vect[i]

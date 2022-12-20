@@ -1,0 +1,65 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+class Solution {
+int value;
+string result="";
+int maxLengthOfTheArr(vector<string> arr){
+    int length=arr[0].length();
+        for(int i=0;i<arr.size();i++){
+            if(length<arr[i].length()){
+                length=arr[i].length();
+            }
+        }
+        return length;
+}
+void isEqual(string s){
+    value=1;
+    for(int i=1;i<s.length()-1;i++){
+        while(true){
+            if(s[i-value]==s[i+value])
+                value++;
+            else
+                break;
+        }
+        for(int x=i-value;x<i+value;x++){
+            result+=s[x];
+        }
+    }
+}
+public:
+    vector <string> arr;
+    string longestPalindrome(string s) { //acxca
+        value=1;
+    for(int i=1;i<s.length()-1;i++){
+        while(true){
+            if(s[i-value]==s[i+value] && value<=i)
+                value++;
+            else
+                break;
+        }
+        for(int x=i-value;x<i+value;x++){
+            result+=s[x];
+        }
+        cout<<"i: "<<i<<" result: "<<result<<endl;
+        arr.push_back(result);
+        value=1;
+    }
+        string resultt="";
+        for(int i=0;i<arr.size();i++){
+            if(maxLengthOfTheArr(arr)==arr[i].length()){
+                resultt=arr[i];
+            }
+        }
+
+        return resultt;
+    }
+};
+
+int main()
+{
+    Solution* s=new Solution();
+    cout<<s->longestPalindrome("acxca");
+
+    return 0;
+}

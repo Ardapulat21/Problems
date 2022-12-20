@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1657633369 source:c:\users\ardap\desktop\kýzma birader\medianoftwosortedarrays\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1659597086 source:c:\users\ardap\desktop\coding\rotatearray\main.cpp
+	<iostream>
+	<vector>
+
